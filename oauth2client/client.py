@@ -2093,7 +2093,7 @@ class OAuth2WebServerFlow(Flow):
 def flow_from_clientsecrets(filename, scope, redirect_uri=None,
                             message=None, cache=None, login_hint=None,
                             device_uri=None, pkce=None, code_verifier=None,
-                            prompt=None):
+                            prompt=None, access_type=None):
     """Create a Flow from a clientsecrets file.
 
     Will create the right kind of Flow based on the contents of the
@@ -2147,7 +2147,8 @@ def flow_from_clientsecrets(filename, scope, redirect_uri=None,
                 'device_uri',
                 'pkce',
                 'code_verifier',
-                'prompt'
+                'prompt',
+                'access_type'
             )
             for param in optional:
                 if locals()[param] is not None:
